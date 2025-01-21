@@ -1,8 +1,25 @@
 {
-  "host": "<HOST NAME>",
-  "port": "<PORT>",
+  "host": "logs6.papertrailapp.com",
+  "port": "38866",
   "retentionPeriod": 3,
-  "sources": [],
+  "sources": [
+    {
+      "prefix": "API-Gateway-Execution-Logs_",
+      "consumer": "APIGatewayLogConsumer"
+    },
+    {
+      "prefix": "ecs/",
+      "consumer": "ECSLogConsumer"
+    },
+    {
+      "prefix": "/ecs/",
+      "consumer": "ECSLogConsumer"
+    },
+    {
+      "prefix": "/aws/lambda/",
+      "consumer": "LambdaLogConsumer"
+    }
+  ],
   "exclude": [],
   "logLevelExtractor": ".* - (error|warn|info|verbose|debug|emerg|alert|crit|notice|silly): ",
   "defaultLogLevel": "info"
